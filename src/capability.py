@@ -2,7 +2,7 @@ class Capability:
 	def __init__(self, name, value):
 		self.setName(name)
 		self.setValue(value)
-		self.__group = ""
+		self.__group = None
 
 	# Metodos Getters
 	def getName(self):
@@ -26,5 +26,5 @@ class Capability:
 
 	# Metodos Sobrecargados
 	def __str__(self):
-		salida = "Name: {0}\nValue: {1}\n"
+		salida = "\n\t\t\tName: {0}\n\t\t\tValue: {1}"
 		return salida.format(self.getName(), self.getValue())

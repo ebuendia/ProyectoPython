@@ -12,7 +12,7 @@ class Group:
 		return str(self.__device.getId())
 
 	def getCapabilities(self):
-		return str(self.__capabilities)
+		return self.__capabilities
 
 	# Metodos Setters
 	def setId(self, group):
@@ -26,5 +26,5 @@ class Group:
 
 	# Metodos Sobrecargados
 	def __str__(self):
-		salida = "Id: {0}\n"
+		salida = "\n\t\tId: {0}"
 		return salida.format(self.getId())

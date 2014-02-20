@@ -25,10 +25,6 @@ def beginCapability(line):
 def endDevices(line):
 	return re.match(r"</devices>", line.strip()) != None
 
-def extractDevice(line):
-	info = line.split(" ")
-	return list
-
 def deleteTags(line, tag, etag):
 	return line.strip().replace(tag,"").replace(etag,"")
 
@@ -47,13 +43,6 @@ def getAttrName(line):
 def getAttrValue(line):
 	return line.rsplit(" ")[1].replace("value=","").replace('"',"")
 
-def createDevices(devices):
-	pass
-
-def isTagName(s):
-    """ Retorna verdadero si s es el nombre de un Tag."""
-    return s[0]=='<' and s[1]!='/'
-
 # Funcion Principal
 def main():
 	file = open("test.xml","r")
@@ -68,6 +57,7 @@ def main():
 	device = ""
 	group = ""
 	capability = ""
+	
 	while not endDevices(line):
 		if beginDevice(line):
 			line = deleteTags(line,"<device ",">")
@@ -104,13 +94,26 @@ def main():
 			group.addCapability(capability)
 			line = file.readline()
 
-	for device in devices:
-		print device
-
-	print "Total Devices: " + str(len(devices))
+	print "Devices\n"
+	printDevices(devices)
+	print "End Devices\n"
+	
 	file.close()
 	return 0
 
+def printDevices(list):
+	for device in list:
+		print device
+		printGroups(device)
+
+def printGroups(device):
+	for group in device.getGroups():
+		print group
+		printCapabilities(group)
+
+def printCapabilities(group):
+	for capability in group.getCapabilities():
+		print capability
+
 if __name__ == '__main__':
 	main()
-

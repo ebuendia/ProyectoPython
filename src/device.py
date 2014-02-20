@@ -35,6 +35,6 @@ class Device:
 
 	# Metodos Sobrecargados
 	def __str__(self):
-		salida = "Id: {0}\nUser Agent: {1}\nFall Back: {2}\n"
+		salida = "\n\tId: {0}\n\tUser Agent: {1}\n\tFall Back: {2}"
 		return salida.format(self.getId(), self.getUserAgent(), self.getFallBack())
 
