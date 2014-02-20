@@ -1,6 +1,6 @@
 class Group:
 	def __init__(self, group):
-		setId(group)
+		self.setId(group)
 		self.__device = ""
 		self.__capabilities = []
 
@@ -9,7 +9,7 @@ class Group:
 		return str(self.__id)
 
 	def getDevice(self):
-		return str(self.__device)
+		return str(self.__device.getId())
 
 	def getCapabilities(self):
 		return str(self.__capabilities)
@@ -21,7 +21,7 @@ class Group:
 	def setDevice(self, device):
 		self.__device = device
 
-	def setCapability(self, capability):
+	def addCapability(self, capability):
 		self.__capabilities.append(capability)
 
 	# Metodos Sobrecargados

@@ -1,7 +1,7 @@
 class Capability:
 	def __init__(self, name, value):
-		setName(name)
-		setValue(value)
+		self.setName(name)
+		self.setValue(value)
 		self.__group = ""
 
 	# Metodos Getters
@@ -12,7 +12,7 @@ class Capability:
 		return str(self.__value)
 
 	def getGroup(self):
-		return str(self.__group)
+		return str(self.__group.getId())
 
 	# Metodos Setters
 	def setName(self, name):
